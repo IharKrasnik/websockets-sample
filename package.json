@@ -1,0 +1,23 @@
+{
+  "name": "websockets-sample",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "postinstall": "gulp install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IharKrasnik/websockets-sample.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IharKrasnik/websockets-sample/issues"
+  },
+  "homepage": "https://github.com/IharKrasnik/websockets-sample#readme",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-install": "^0.6.0"
+  }
+}
