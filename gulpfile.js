@@ -8,6 +8,7 @@ gulp.task('install', () => {
     .src([
       './app/*',
       './app/src/client/*',
+      './sockets/*',
       './lib/*/**',
     ])
     .pipe(install({allowRoot: true}));

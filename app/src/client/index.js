@@ -1,17 +1,38 @@
-const socket = io();
+const socket = io('http://localhost:8181/');
 const messagesApiUrl = '/api/messages';
+
+jQuery.extend({
+  parseQuerystring: function () {
+    var nvpair = {};
+    var qs = window.location.search.replace('?', '');
+    var pairs = qs.split('&');
+    $.each(pairs, function (i, v) {
+      var pair = v.split('=');
+      nvpair[pair[0]] = pair[1];
+    });
+    return nvpair;
+  }
+});
 
 $(() => {
   const messages = $('#messages');
   const input = $('#new-message input');
+  const roomId = $.parseQuerystring().roomId;
 
-  $.get(messagesApiUrl)
+  if (roomId) {
+  	socket.emit('subscribe', { roomId });
+  }
+
+  $.get(messagesApiUrl, {
+  	roomId
+  })
     .then(messages => messages.results.forEach(addMessage));
 
   $('#new-message').keypress(e => {
     if (e.which == 13) {
       $.post(messagesApiUrl, {
-        text: input.val()
+        text: input.val(),
+        roomId
       });
 
       input.val('');

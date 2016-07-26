@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/IharKrasnik/websockets-sample#readme",
   "dependencies": {
+    "bower": "^1.7.9",
     "gulp": "^3.9.1",
-    "gulp-install": "^0.6.0"
+    "gulp-install": "^0.6.0",
+    "nodemon": "^1.10.0"
   }
 }
