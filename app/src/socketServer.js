@@ -1,11 +1,13 @@
 const socketIo = require('socket.io');
+const messagesService = require('./api/messages/messages.service');
 
 module.exports = server => {
   const io = socketIo(server);
 
   io.on('connection', function (socket) {
-    socket.on('message:send', function (msg) {
-      io.emit('message:sent', msg);
-    });
+  });
+
+  messagesService.on('created', (msg) => {
+    io.emit('message:sent', msg.doc);
   });
 };
