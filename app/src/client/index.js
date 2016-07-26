@@ -40,7 +40,11 @@ $(() => {
   });
 
   function addMessage (message) {
-    messages.append($('<li>').html(message.text))
+    const deleteIcon = $('<span class="delete">X</span>');
+    const li = $('<li>').html(message.text);
+    li.append(deleteIcon);
+
+    messages.append(li);
   }
 
   socket.on('message:sent', addMessage);
